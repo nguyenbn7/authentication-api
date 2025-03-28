@@ -9,6 +9,7 @@ import {
   createUser,
   existUser,
   getUserByUsername,
+  updateLastLogin,
 } from "./users-manager";
 
 const app = new Hono()
@@ -37,6 +38,8 @@ const app = new Hono()
       path: "/",
     });
 
+    updateLastLogin(user.id);
+
     return c.json({
       login: true,
     });
@@ -64,6 +67,8 @@ const app = new Hono()
       expires: expiresAt,
       path: "/",
     });
+
+    updateLastLogin(user.id);
 
     return c.json({
       login: true,
