@@ -1,4 +1,10 @@
-import { pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
+import {
+  integer,
+  pgTable,
+  serial,
+  timestamp,
+  varchar,
+} from "drizzle-orm/pg-core";
 
 export const userTable = pgTable("user", {
   id: serial().primaryKey(),
@@ -12,7 +18,8 @@ export const userTable = pgTable("user", {
   lastLogin: timestamp("last_login", { mode: "date" }),
 });
 
-export const resouceTable = pgTable("resource", {
+export const resouceTable = pgTable("internal_resource", {
   id: serial().primaryKey(),
-  name: varchar({ length: 255 }),
+  name: varchar({ length: 255 }).notNull(),
+  userId: integer("user_id").notNull(),
 });

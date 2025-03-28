@@ -3,5 +3,5 @@ import { resouceTable, userTable } from "./schemas";
 
 interface Database {
   user: Kyselify<typeof userTable>;
-  resouce: Kyselify<typeof resouceTable>;
+  internal_resource: Kyselify<typeof resouceTable>;
 }

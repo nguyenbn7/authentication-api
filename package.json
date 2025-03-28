@@ -1,5 +1,6 @@
 {
   "name": "authentication-api",
+  "type": "module",
   "scripts": {
     "dev": "bun run --hot src/app.ts",
     "db:push": "drizzle-kit push",
